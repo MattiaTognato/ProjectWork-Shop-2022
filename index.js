@@ -1,15 +1,20 @@
+const cornerUpSx = L.latLng(73.167946, -165.806437) //73
+const cornerDwDx = L.latLng(-40.416937,186.310441)
+const mapBounds = L.latLngBounds( cornerDwDx, cornerUpSx)
+
 var map = L.map('map', {
     center: [51.505, -0.09],
-    zoom: 2
-});
+    minZoom: 3,
+    maxZoom: 3,
+    zoom: 3,
+    maxBounds: mapBounds
+})
 var shopIcon = L.icon({
     iconUrl: 'store-2017.svg',
-
     iconSize: [40, 40], // size of the icon
 });
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
@@ -26,7 +31,7 @@ async function addShops() {
         let position = L.latLng(shopPosition[i][0], shopPosition[i][1])
         let marker = L.marker(position, {icon:shopIcon}).addTo(map)
         let category = categories[i].toUpperCase()
-        marker.bindPopup(`<b>${category}</b><br>I am a popup.`);
+        marker.bindPopup(`<b>${category}</b><br>I am a popup.`)
     }
     
 }
