@@ -1,6 +1,9 @@
 fetch('https://dummyjson.com/products/categories')
     .then((response) => response.json())
     .then((data) => {
+        for(var i=0; i<Object.keys(data).length; i++){
+            data[i]=data[i].replace("-", ' ');
+        }
         const negozi=[
             {name: "Starmobile", category: data[0]},
             {name: "MasterTech", category: data[1]},
@@ -37,10 +40,10 @@ fetch('https://dummyjson.com/products/categories')
             });
         } );
         $('#table_id').on('click', 'td', function(){
-            window.location.href = 'datatable_items.html?category=' + getTdText($(this).closest('tr'), 1) + "&shop=" + getTdText($(this).closest('tr'), 0);
+            window.location.href = 'datatable_items.html?category=' + (getTdText($(this).closest('tr'), 1)).replace(' ', '-') + "&shop=" + getTdText($(this).closest('tr'), 0);
         })
         $('#table_id').on('mouseover', 'td', function(){
-            document.getElementById("table_div").title="click to see the products offered by " + getTdText($(this).closest('tr'), 0);
+            document.getElementById("table_id").title="click to see the products offered by " + getTdText($(this).closest('tr'), 0);
         })
         function getTdText(line, index){
             var text=line.find('td:eq(' + index + ')').text()
