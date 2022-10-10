@@ -28,12 +28,23 @@ async function getCategories() {
     return categories
 }
 async function addShops() {
+    // create shops on the map
+    // and then bind the popUp to all the shop
+    
+    //for each category we need to create a shop
     let categories = await getCategories()
+    
     for (let i = 0; i < shopPosition.length; i++) {
+
+        // get the shop position and place it on the map
         let position = L.latLng(shopPosition[i][0], shopPosition[i][1])
         let marker = L.marker(position, {icon:shopIcon}).addTo(map)
-        let category = categories[i].toUpperCase()
-        marker.bindPopup(`<b>${category}</b><br>I am a popup.`)
+
+        //create popUp
+        let popUpHTML = `<p class="text-center text-sm font-extrabold bg-transparent text-black" aria-current="page">${categories[i].toUpperCase()}</p>
+        <a href="../pages/shop-page.html?category=${categories[i]}" class="bg-fuchsia-500 hover:bg-fuchsia-600 hover:text-white visited:text-white font-bold py-2 px-4 rounded-full">Buy Here</a>`
+        //bind it to the marker
+        marker.bindPopup(popUpHTML, {minWidth : 90, offset: L.point(0, -13)})
     }
     
 }
