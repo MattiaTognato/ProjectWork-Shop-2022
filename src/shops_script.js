@@ -39,11 +39,11 @@ fetch('https://dummyjson.com/products/categories')
                 ]
             });
         } );
-        $('#table_id').on('click', 'td', function(){
+        $('#table_id').on('dblclick', 'td', function(){
             window.location.href = 'datatable_items.html?category=' + (getTdText($(this).closest('tr'), 1)).replace(' ', '-') + "&shop=" + getTdText($(this).closest('tr'), 0);
         })
         $('#table_id').on('mouseover', 'td', function(){
-            document.getElementById("table_id").title="click to see the products offered by " + getTdText($(this).closest('tr'), 0);
+            document.getElementById("table_id").title="double click to see the products offered by " + getTdText($(this).closest('tr'), 0);
         })
         function getTdText(line, index){
             var text=line.find('td:eq(' + index + ')').text()
