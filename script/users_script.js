@@ -2,16 +2,24 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const category = urlParams.get('category');
 const shopName= urlParams.get('shop');
-fetch('https://dummyjson.com/carts/user/5')
+var userId;
+fetch('https://dummyjson.com/users/search?q=kmeus4@upenn.edu')
+    .then((response) => response.json())
+    .then((user) => {
+        userId=user.users[0].id;
+        
+    
+fetch('https://dummyjson.com/carts/user/' + userId)
     .then((response) => response.json())
     .then((data) => {
+        console.log(data.carts[0].products);
+        /*console.log(data);
         data.carts.forEach(element => {
             console.log(element.products);
         });
         $(document).ready( function () {
-            //document.getElementById("title").appendChild(document.createTextNode());
             $('#table_id').DataTable({
-                data: data.products,
+                data: data.carts[0].products,
                 columnDefs: [{
                     "defaultContent": "-",
                     "targets": "_all"
@@ -23,5 +31,6 @@ fetch('https://dummyjson.com/carts/user/5')
                     {data: 'quantity'}
                 ]
             });
-        } );
+        } );*/
     });
+})
