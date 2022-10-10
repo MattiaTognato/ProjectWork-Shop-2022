@@ -1,3 +1,4 @@
+// defining bounds of the map
 const cornerUpSx = L.latLng(73.167946, -165.806437) //73
 const cornerDwDx = L.latLng(-40.416937,186.310441)
 const mapBounds = L.latLngBounds( cornerDwDx, cornerUpSx)
@@ -7,10 +8,12 @@ var map = L.map('map', {
     minZoom: 3,
     maxZoom: 3,
     zoom: 3,
+    zoomControl: false,
+    attributionControl: false,
     maxBounds: mapBounds
 })
 var shopIcon = L.icon({
-    iconUrl: 'store-2017.svg',
+    iconUrl: '../assets/store-2017.svg',
     iconSize: [40, 40], // size of the icon
 });
 
@@ -19,7 +22,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 async function getCategories() {
-    //get categories
     const response = await fetch('https://dummyjson.com/products/categories')
     const categories = await response.json()
 
