@@ -2,6 +2,7 @@
     <head>
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Login</title>
+        <script type="text/javascript" src="../src/script_login.js"></script>
     </head>
     <body>
         <!--Background style-->
@@ -27,11 +28,11 @@
                     <div class="space-y-6">
                         <!--Box utente-->
                         <div class="">
-                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400" type="" placeholder="Email">
+                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400" type="" placeholder="Email" id="id-login">
                         </div>
                         <!--Box password-->
                         <div class="relative" x-data="{ show: true }">
-                            <input placeholder="Password" :type="show ? 'password' : 'text'" class="text-sm text-black-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
+                            <input placeholder="Password" id="password-login" :type="show ? 'password' : 'text'" class="text-sm text-black-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
                                 <div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
                                     <svg @click="show = !show" :class="{'hidden': !show, 'block':show }"
                                         class="h-4 text-purple-700" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+                            <button type="submit" onclick="getCategories()" class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
                                 Sign in
                             </button>
                         </div>

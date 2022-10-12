@@ -4,13 +4,16 @@ const category = urlParams.get('category');
 const shopName= urlParams.get('shop');
 const user=urlParams.get('email');                                          //parametro che corrisponde all'email immessa nel login
 var userId;
-fetch('https://dummyjson.com/users/search?q=' + /*user*/"kmeus4@upenn.edu") //email di un utente preso dall'API in attesa che venga implementato il login
+fetch('https://dummyjson.com/users/search?q=' + user) //email di un utente preso dall'API in attesa che venga implementato il login
     .then((response) => response.json())
     .then((user) => {
         userId=user.users[0].id;
         console.log(user);
         console.log(` ${user.users[0].firstName} ${user.users[0].lastName}`);
         document.getElementById('title').appendChild(document.createTextNode((` ${user.users[0].firstName} ${user.users[0].lastName}`).toUpperCase()));
+        document.getElementById('email').appendChild(document.createTextNode((` ${user.users[0].email}`)));
+        document.getElementById('phone').appendChild(document.createTextNode((` ${user.users[0].phone}`)));
+        document.getElementById('image').src = user.users[0].image;
         fetch('https://dummyjson.com/carts/user/' + userId)
             .then((response) => response.json())
             .then((data) => {
