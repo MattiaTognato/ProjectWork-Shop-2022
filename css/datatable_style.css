@@ -579,11 +579,10 @@ table.dataTable td {
 }
 body{
     margin: 0;
-    display: flex;
-    justify-content: center;
     background-repeat: no-repeat;
 }
 #table_div{
+    margin-left: 20%;
     width: 60%;
     margin-top: 0.5%;
     padding: 1%;
