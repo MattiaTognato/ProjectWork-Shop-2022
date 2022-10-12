@@ -41,7 +41,7 @@ async function getProductsFromCategory(category) {
     //for each category we need to create a shop
     let categories = await getCategories()
     
-    for (let i = 0; i < shopPosition.length; i++) {
+    for (let i = 0; i < categories.length; i++) {
 
         // get the shop position and place it on the map
         let position = L.latLng(shopPosition[i][0], shopPosition[i][1])
