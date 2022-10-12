@@ -27,6 +27,12 @@ async function getCategories() {
 
     return categories
 }
+async function getProductFromCategory(category) {
+    const response = await fetch(`https://dummyjson.com/products/category/${category}`)
+    const products = await response.json()
+
+    return products
+}
 (async function addShops() {
     // create shops on the map
     // and then bind the popUp to all the shop
@@ -42,7 +48,7 @@ async function getCategories() {
 
         //create popUp
         let popUpHTML = `<p class="text-center text-sm font-extrabold bg-transparent text-black" aria-current="page">${categories[i].toUpperCase()}</p>
-        <a onclick="checkoutHandler(false)" class="bg-fuchsia-500 hover:bg-fuchsia-600 hover:text-white visited:text-white text-white font-bold py-2 px-4 rounded-full">Buy Here</a>`
+        <a onclick="checkoutHandler(false)" class="self-center bg-fuchsia-500 hover:bg-fuchsia-600 hover:text-white visited:text-white text-white font-bold py-2 px-4 rounded-full">Buy Here</a>`
         //bind it to the marker
         marker.bindPopup(popUpHTML, {minWidth : 90, offset: L.point(0, -13)})
     }
