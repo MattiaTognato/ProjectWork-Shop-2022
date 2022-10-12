@@ -11,7 +11,7 @@
     <script type="text/javascript" src="../src/shops_script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body background="https://images.wallpaperscraft.com/image/single/purple_continuous_background_colorful_65843_1920x1080.jpg">
+<body class="bg-purple-900 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
     <!--Navbar-->
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
@@ -38,17 +38,19 @@
             </div>
         </div>
     </nav>
-    <div id="table_div">
-        <p><h1 id="title">E-SHOP</h1></p>
-        <table id="table_id" class="display">
-            <thead>
-                <th>Name</th>
-                <th>Category</th>
-            </thead>
-            <tbody id="datatable_body">
-                
-            </tbody>
-        </table>
+    <div class="flex justify-center self-center mt-4 z-10">
+        <div id="table_div" class="z-10 p-12 bg-white mx-auto rounded-3xl w-96 br-10 md:mb-0 border-4 border-purple-400">
+            <p><h1 id="title">E-SHOP</h1></p>
+            <table id="table_id" class="display">
+                <thead>
+                    <th>Name</th>
+                    <th>Category</th>
+                </thead>
+                <tbody id="datatable_body">
+                    
+                </tbody>
+            </table>
+        </div>
     </div>
     <!--footer-->
     <footer class="fixed bottom-0 left-0 z-20 p-4 w-full bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
