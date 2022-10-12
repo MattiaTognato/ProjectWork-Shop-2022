@@ -590,7 +590,7 @@ th{
     background-color: #0c0c0c;
     color: white;
 }
-div.dataTables_filter, div.dataTables_length, div.dataTables_info, div.dataTables_paginate, div.paging_simple_numbers{
+div.dataTables_length{
   margin-top: 0.5%;
   margin-bottom: 1%;
   display: none;
