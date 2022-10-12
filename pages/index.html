@@ -15,7 +15,7 @@
 
 <body>
     <!--Navbar-->
-    <nav class="bg-purple-900 bg-gradient-to-r from-cyan-200 to-purple-200 bottom-0 leading-5 w-full overflow-hidden border-gray-200 px-2 sm:px-4 py-2.5 ">
+    <nav class="bg-purple-900 bg-gradient-to-r from-cyan-100 to-purple-200 bottom-0 leading-5 w-full overflow-hidden border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <!--Logo-->
             <a href="index.html" class="flex items-center">
@@ -69,13 +69,11 @@
             <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">
                 <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-x-hidden lg:h-screen h-auto" id="scroll">
                     <div class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer" onclick="checkoutHandler()">
-                        <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1.svg" alt="previous"/>
-                         <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1dark.svg" alt="previous"/>
-                        <p class="text-sm pl-2 leading-none dark:hover:text-gray-200">Back</p>
+                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                            <span>< Back</span>
+                          </button>
                     </div>
-                    <div id="dynamic-container" class="space-y-5 mt-10">
-
-                    </div>                  
+                    <div id="dynamic-container" class="space-y-5 mt-10"></div>                  
                 </div>
             </div>
         </div>
@@ -96,6 +94,7 @@
             }
         </style>
     </div>
+    
     <script src="../src/shopPosition.js"></script>
     <script src="../src/home.js"></script>
 </body>

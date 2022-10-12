@@ -56,7 +56,7 @@ async function getProductsFromCategory(category) {
     
 })()
 
-function createProductHTML(name, price, image){
+function createProductHTML(name, price, image, stock){
     return `<div class="flex font-sans">
     <div class="flex-none w-56 relative">
       <img src="${image}" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
@@ -67,22 +67,22 @@ function createProductHTML(name, price, image){
           ${name}
         </h1>
         <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-violet-600">
-          ${price}
+          ${price}€
         </div>
         <div class="text-sm font-medium text-slate-400">
-          In stock
+          In stock: ${stock}
         </div>
       </div>
       <div class="flex space-x-4 mb-5 text-sm font-medium">
         <div class="flex-auto flex space-x-4">
-          <button class="h-10 px-6 font-semibold rounded-full bg-violet-600 text-white" type="submit">
+          <button onclick="notificationHandler()" type="button" class="h-10 px-6 font-semibold rounded-full bg-violet-600 text-white">
             Buy now
           </button>
           <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
-            Add to bag
+            Add to cart
           </button>
         </div>
-        <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50" type="button" aria-label="Like">
+        <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50" type="button">
           <svg width="20" height="20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
           </svg>
@@ -102,7 +102,7 @@ async function createProductsHTML(category){
     <div id="products-container" class="space-y-5 mt-10"></div>`
     //add all the products
     for(let i = 0; i < products.length; i++){
-        productsContainer.innerHTML += createProductHTML(products[i].title, products[i].price, products[i].images[0])
+        productsContainer.innerHTML += createProductHTML(products[i].title, products[i].price, products[i].images[0], products[i].stock)
     }
 }
 let checkout = document.getElementById("checkout")
