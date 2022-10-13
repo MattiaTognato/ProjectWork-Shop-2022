@@ -107,6 +107,7 @@ async function createProductsHTML(category){
 }
 let checkout = document.getElementById("checkout")
 let checdiv = document.getElementById("chec-div")
+checkout.classList.remove("translate-x-0")
 let flag = true
 
 const checkoutHandler = (category) => {
