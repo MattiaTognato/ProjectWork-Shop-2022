@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User cart</title>
+    <link rel="stylesheet" type="text/css" href="../css/datatable_style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/Azure-Blockchain-Service.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../src/users_script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-400 bg-gradient-to-b from-purple-700 via-purple-500 to-purple-400 bottom-0 leading-5 h-full w-full">
+    <!--Navbar-->
+    <nav class="text-white bg-transparent border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <!--Logo-->
+            <a href="index.html" class="flex items-center">
+                <img src="../assets/Azure-Blockchain-Service.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap">E-shop</span>
+            </a>
+            <!--profile pic-->
+            <div class="flex items-center md:order-2 space-x-8">
+                <button type="button" class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <img class="w-12 h-12" src="../assets/shopping-cart-outline-svgrepo-com.svg" alt="user photo">
+                </button>
+                <a type="button" href="login.html" class="flex mr-3 bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <img class="w-12 h-12 rounded-full" src="../assets/avatar.png" alt="user photo">
+                </a>
+            </div>
+            <!--Link-->
+            <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+                <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:text-base md:border-0 ">
+                    <li><a href="index.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" aria-current="page">Home</a></li>
+                    <li><a href="datatable_shops_index.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Shop List</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="flex justify-center self-center mt-4 z-10">
+
+        <div id="table_div" class="z-10 p-0 bg-white mx-auto rounded-3xl w-96 br-10 md:mb-0 border-4 border-purple-400">
+            <div class="container mx-auto my-40">
+                <div>
+        
+                    <div class="bg-white relative shadow rounded-lg w-5/6 md:w-4/6  lg:w-3/6 xl:w-2/6 mx-auto">
+                        <div class="flex justify-center">
+                                <img id="image" alt="" class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
+                        </div>
+                        
+                        <div class="mt-16">
+                            <h1 class="font-bold text-center text-3xl text-gray-900" id="title"></h1>
+                            <p>
+                                <span>
+                                    
+                                </span>
+                            </p>
+        
+                            <div class="w-full">
+                                <div class="mt-0 w-full flex flex-col items-center overflow-hidden text-sm">
+                                    <a href="#" class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                                        <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2">
+                                            Email
+                                            <span class="text-gray-500 text-xs" id="email"></span>
+                                    </a>
+        
+                                    <a href="#" class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                                        <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2">
+                                            Phone
+                                            <span class="text-gray-500 text-xs" id="phone"></span>
+                                    </a>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            <table id="table_id" class="display">
+                <thead>
+                    <th>Title</th>
+                    <th>Price ($)</th>
+                    <th>Discount (%)</th>
+                    <th>Stock</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+        <!--footer-->
+        <footer class="fixed bottom-0 left-0 z-20 p-4 w-full bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="" class="hover:underline">E-shop™</a>. All Rights Reserved.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </footer>
+</body>
+</html>

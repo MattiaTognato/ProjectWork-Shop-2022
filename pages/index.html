@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/Azure-Blockchain-Service.svg">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>E-shop</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="bg-purple-900 bg-gradient-to-r from-cyan-300 to-purple-500 bottom-0 leading-5 w-full overflow-hidden border-gray-200 px-2 sm:px-4 py-2.5">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <!--Logo-->
+            <a href="index.html" class="flex items-center">
+                <img src="../assets/Azure-Blockchain-Service.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap">E-shop</span>
+            </a>
+            <!--profile pic-->
+            <div class="flex items-center md:order-2 space-x-8">
+                <button type="button" class="flex mr-3 text-sm rounded-full md:mr-0 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <img class="w-12 h-12" src="../assets/shopping-cart-outline-svgrepo-com.svg" alt="user photo">
+                </button>
+                <a type="button" href="login.html" class="flex mr-3 bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <img class="w-12 h-12 rounded-full" src="../assets/avatar.png" alt="user photo">
+                </a>
+            </div>
+            <!--Link-->
+            <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+                <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:text-base md:border-0 ">
+                    <li><a href="#" class="block py-2 pr-4 pl-3 text-white md:p-0 " aria-current="page">Home</a></li>
+                    <li><a href="datatable_shops_index.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Shop List</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--map-->
+    <div id="map" style="z-index: 0; height: 88vh; width: 100%;"></div>
+    
+
+    <!--footer-->
+    <footer class="fixed bottom-0 left-0 p-2 w-full bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-3">
+        <span class="text-xs text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="" class="hover:underline">E-shop™</a>. All Rights Reserved.
+        </span>
+        <ul class="flex flex-wrap items-center mt-1 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline">Contact</a>
+            </li>
+        </ul>
+    </footer>
+    <!--product-->
+    <div class="hidden w-full h-full dark:bg-gray-900 bg-opacity-70 top-0 overflow-x-hidden fixed sticky-0" id="chec-div">
+        <div class="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700" id="checkout">
+            <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">
+                <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-x-hidden lg:h-screen h-auto" id="scroll">
+                    <div class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer" onclick="checkoutHandler()">
+                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                            <span>< Back</span>
+                          </button>
+                    </div>
+                    <div id="dynamic-container" class="space-y-5 mt-10"></div>                  
+                </div>
+            </div>
+        </div>
+        <style>
+            /* width */
+            #scroll::-webkit-scrollbar {
+                width: 1px;
+            }
+  
+            /* Track */
+            #scroll::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+  
+            /* Handle */
+            #scroll::-webkit-scrollbar-thumb {
+                background: rgb(133, 132, 132);
+            }
+        </style>
+    </div>
+    
+    <script src="../src/shopPosition.js"></script>
+    <script src="../src/home.js"></script>
+</body>
+
+</html>
